@@ -6,8 +6,15 @@
 <title>The Money Ceiling Quiz — Sanjeet Ray</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Allura&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Gistesy';
+    src:url('fonts/Gistesy.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --cream:#F9F8F6;
     --linen:#E5DCD5;
@@ -132,13 +139,15 @@
     margin:0 0 18px;
     max-width:46ch;
   }
-  p.note{
+  p.question-hint{
+    font-family:'Inter',sans-serif;
+    font-style:italic;
+    font-weight:400;
     font-size:13px;
     line-height:1.65;
     color:#7A7266;
-    border-left:2px solid var(--tan);
-    padding-left:14px;
-    margin:0 0 30px;
+    margin-top:auto;
+    margin-bottom:0;
     max-width:44ch;
   }
   .rule{
@@ -370,7 +379,7 @@
     margin-top:16px;
     padding-top:28px;
     border-top:1px solid rgba(229,220,213,0.18);
-    font-family:'Allura', cursive;
+    font-family:'Gistesy', cursive;
     font-size:26px;
     color:var(--rose);
     line-height:1.5;
@@ -421,7 +430,6 @@ const QUESTIONS = [
   {
     id: 'q1', scored:false, key:'profession',
     prompt:'How do you currently make your money?',
-    note:'Not scored — used to personalize your result with the right examples.',
     options:[
       {text:'I run my own business or practice', value:'business'},
       {text:'I have a salaried job', value:'salaried'},
@@ -432,7 +440,6 @@ const QUESTIONS = [
   {
     id:'q2', scored:false, key:'income',
     prompt:"What's the average monthly income you've circled back to more than once, but haven't been able to cross?",
-    note:'Not scored — used to personalize your result with your number.',
     options:[
       {text:'₹1 lakh', value:'₹1 lakh'},
       {text:'₹2 lakh', value:'₹2 lakh'},
@@ -616,12 +623,12 @@ function renderQuestion(){
       <div class="logo-row"><img class="logo-mark" src="${LOGO_DARK}" alt="Sanjeet Ray"></div>
       <p class="eyebrow"><span class="slash">/</span> Question ${step} of ${QUESTIONS.length}</p>
       <h2>${q.prompt}</h2>
-      ${q.note ? `<p class="note">${q.note}</p>` : ''}
       <div class="options" id="optionsWrap"></div>
       <div class="actions">
         ${step>1 ? '<button class="btn btn-ghost" id="backBtn">Back</button>' : '<span></span>'}
         <span></span>
       </div>
+      <p class="question-hint">Choose the answer that feels closest to your truth. Don’t overthink it.</p>
     </div>
     ${sidePanelNumeral(step, QUESTIONS.length)}
   `;
