@@ -48,9 +48,6 @@
   @media (max-width:780px){
     .frame:not(.hero-frame){ grid-template-columns:1fr; }
     .frame:not(.hero-frame) .side{ display:none; }
-    .hero img.hero-bg{
-      object-position:center 52%;
-    }
   }
 
   .fade{ transition:opacity .22s ease, transform .22s ease; }
@@ -283,6 +280,11 @@
     object-fit:cover;
     object-position:center 32%;
     z-index:0;
+  }
+  @media (max-width:780px){
+    .hero img.hero-bg{
+      object-position:center 58%;
+    }
   }
   .hero-scrim{
     position:absolute; inset:0;
