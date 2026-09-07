@@ -48,6 +48,9 @@
   @media (max-width:780px){
     .frame:not(.hero-frame){ grid-template-columns:1fr; }
     .frame:not(.hero-frame) .side{ display:none; }
+    .hero img.hero-bg{
+      object-position:center 52%;
+    }
   }
 
   .fade{ transition:opacity .22s ease, transform .22s ease; }
@@ -212,6 +215,9 @@
     background:var(--chocolate);
     color:var(--cream);
     border:none;
+  }
+  .hero .btn-primary{
+    border:1px solid rgba(255, 255, 255, 0.9);
   }
   .btn-primary:disabled{
     opacity:0.3;
